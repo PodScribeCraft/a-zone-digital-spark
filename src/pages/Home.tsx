@@ -1,6 +1,5 @@
-
 import { Link } from "react-router-dom";
-import { ArrowRight, Globe, ShoppingCart, Database, Ai, Robot, MessageSquare, Brain, Eye } from "lucide-react";
+import { ArrowRight, Globe, ShoppingCart, Database, Brain, Bot, MessageSquare } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/components/ui/card";
 
@@ -78,7 +77,7 @@ export default function Home() {
             <Card className="bg-gray-800/40 hover:shadow-lg transition-shadow border-purple-800/30">
               <CardHeader>
                 <div className="flex items-center gap-2 mb-1">
-                  <Ai className="h-5 w-5 text-purple-400" />
+                  <Brain className="h-5 w-5 text-purple-400" />
                   <CardTitle>AI Solutions</CardTitle>
                 </div>
                 <CardDescription>Intelligent systems for your business.</CardDescription>

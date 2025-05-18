@@ -2,7 +2,7 @@
 import { Link } from "react-router-dom";
 import { ServiceCard } from "@/components/services/ServiceCard";
 import { Button } from "@/components/ui/button";
-import { Globe, ShoppingCart, Database, Image, Text, Ai, Robot, MessageSquare, Brain, Eye } from "lucide-react";
+import { Globe, ShoppingCart, Database, Image, MessageSquare, Bot, Brain, Eye } from "lucide-react";
 
 export default function Services() {
   const services = [
@@ -66,7 +66,7 @@ export default function Services() {
     {
       title: "AI Solutions",
       description: "Intelligent systems for your business",
-      icon: Ai,
+      icon: Brain,
       subServices: [
         {
           name: "AI & Machine Learning",
@@ -85,7 +85,7 @@ export default function Services() {
     {
       title: "Automation Solutions",
       description: "Streamline your business operations",
-      icon: Robot,
+      icon: Bot,
       subServices: [
         {
           name: "Workflow Automation",
