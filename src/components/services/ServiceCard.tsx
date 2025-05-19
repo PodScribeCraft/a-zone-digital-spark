@@ -1,13 +1,11 @@
 
 import { useState } from "react";
-import { Link } from "react-router-dom";
 import { ChevronDown, ChevronUp, LucideIcon } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import {
   Card,
   CardContent,
   CardDescription,
-  CardFooter,
   CardHeader,
   CardTitle
 } from "@/components/ui/card";
@@ -20,6 +18,7 @@ import {
 interface SubService {
   name: string;
   description: string;
+  icon?: LucideIcon;
 }
 
 interface ServiceCardProps {
@@ -27,13 +26,20 @@ interface ServiceCardProps {
   description: string;
   icon: LucideIcon;
   subServices: SubService[];
+  hideContactButton?: boolean;
 }
 
-export function ServiceCard({ title, description, icon: Icon, subServices }: ServiceCardProps) {
+export function ServiceCard({ 
+  title, 
+  description, 
+  icon: Icon, 
+  subServices, 
+  hideContactButton = false 
+}: ServiceCardProps) {
   const [isOpen, setIsOpen] = useState(false);
 
   return (
-    <Card className="bg-card hover:shadow-lg transition-shadow border-purple-800/30">
+    <Card className="bg-black hover:shadow-purple-800/20 hover:shadow-lg transition-shadow duration-300 border-purple-800/30 h-full flex flex-col">
       <CardHeader className="pb-2">
         <div className="flex items-center gap-2 mb-2">
           <Icon className="h-5 w-5 text-purple-400" />
@@ -44,36 +50,44 @@ export function ServiceCard({ title, description, icon: Icon, subServices }: Ser
       <Collapsible
         open={isOpen}
         onOpenChange={setIsOpen}
-        className="w-full"
+        className="w-full flex-1 flex flex-col"
       >
         <CollapsibleTrigger asChild>
           <Button 
             variant="ghost" 
             size="sm" 
-            className="w-full flex justify-between border-t border-purple-800/20 mt-2 rounded-none"
+            className="w-full flex justify-between border-t border-purple-800/20 mt-2 rounded-none hover:text-purple-400 hover:bg-purple-900/10"
           >
             <span>View details</span>
             {isOpen ? <ChevronUp className="h-4 w-4" /> : <ChevronDown className="h-4 w-4" />}
           </Button>
         </CollapsibleTrigger>
-        <CollapsibleContent className="pt-0">
+        <CollapsibleContent className="pt-0 flex-1">
           <CardContent className="pt-4 border-t border-purple-800/20">
-            <ul className="space-y-2 text-muted-foreground">
-              {subServices.map((subService, index) => (
-                <li key={index} className="flex flex-col">
-                  <span className="font-medium text-purple-400">{subService.name}</span>
-                  <span className="text-sm">{subService.description}</span>
-                </li>
-              ))}
+            <ul className="space-y-4 text-muted-foreground">
+              {subServices.map((subService, index) => {
+                const SubIcon = subService.icon;
+                return (
+                  <li key={index} className="flex items-start gap-3">
+                    {SubIcon && <SubIcon className="h-5 w-5 text-purple-400 mt-1 flex-shrink-0" />}
+                    <div>
+                      <span className="font-medium text-purple-300 block">{subService.name}</span>
+                      <span className="text-sm">{subService.description}</span>
+                    </div>
+                  </li>
+                );
+              })}
             </ul>
           </CardContent>
         </CollapsibleContent>
       </Collapsible>
-      <CardFooter className="pt-4">
-        <Button asChild variant="outline" className="w-full hover:bg-purple-900/20 hover:text-purple-300 border-purple-800/30">
-          <Link to="/contact">Contact Us</Link>
-        </Button>
-      </CardFooter>
+      {!hideContactButton && (
+        <div className="p-6 pt-4 mt-auto">
+          <Button asChild variant="outline" className="w-full hover:bg-purple-900/20 hover:text-purple-300 border-purple-800/30">
+            <a href="#contact">Contact Us</a>
+          </Button>
+        </div>
+      )}
     </Card>
   );
 }
