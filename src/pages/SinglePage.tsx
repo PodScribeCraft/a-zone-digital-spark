@@ -1,5 +1,4 @@
-
-import { useEffect } from "react";
+import { useEffect, useState } from "react";
 import { useLocation } from "react-router-dom";
 import { 
   ArrowRight, 
@@ -22,10 +21,11 @@ import {
   Settings,
   FileCode,
   Link,
+  CircleIcon,
   CircleDollarSign,
-  CircleInfo,
   Star,
   CreditCard,
+  Eye,
 } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/components/ui/card";
@@ -186,7 +186,7 @@ export default function SinglePage() {
         {
           name: "Process Optimization",
           description: "Improve efficiency in your operations",
-          icon: CircleInfo
+          icon: CircleIcon
         },
         {
           name: "Integration Services",
