@@ -158,24 +158,6 @@ export function ContactSection() {
                 </div>
               </div>
             </div>
-            
-            <div>
-              <h3 className="text-2xl font-semibold mb-4 bg-gradient-to-r from-white to-purple-400 bg-clip-text text-transparent">Office Hours</h3>
-              <div className="space-y-2">
-                <p className="flex justify-between">
-                  <span className="text-muted-foreground">Monday - Friday</span>
-                  <span>9:00 AM - 5:00 PM</span>
-                </p>
-                <p className="flex justify-between">
-                  <span className="text-muted-foreground">Saturday</span>
-                  <span>Closed</span>
-                </p>
-                <p className="flex justify-between">
-                  <span className="text-muted-foreground">Sunday</span>
-                  <span>Closed</span>
-                </p>
-              </div>
-            </div>
           </div>
         </div>
       </div>

@@ -53,14 +53,15 @@ export function ServiceCard({
         className="w-full flex-1 flex flex-col"
       >
         <CollapsibleTrigger asChild>
-          <Button 
-            variant="ghost" 
-            size="sm" 
-            className="w-full flex justify-between border-t border-purple-800/20 mt-2 rounded-none hover:text-purple-400 hover:bg-purple-900/10"
-          >
-            <span>View details</span>
-            {isOpen ? <ChevronUp className="h-4 w-4" /> : <ChevronDown className="h-4 w-4" />}
-          </Button>
+          <div className="flex justify-center mt-3 mb-1">
+            <Button 
+              variant="ghost" 
+              size="icon" 
+              className="rounded-full hover:bg-purple-900/10 hover:text-purple-400 h-8 w-8 border border-purple-800/30"
+            >
+              {isOpen ? <ChevronUp className="h-4 w-4" /> : <ChevronDown className="h-4 w-4" />}
+            </Button>
+          </div>
         </CollapsibleTrigger>
         <CollapsibleContent className="pt-0 flex-1">
           <CardContent className="pt-4 border-t border-purple-800/20">

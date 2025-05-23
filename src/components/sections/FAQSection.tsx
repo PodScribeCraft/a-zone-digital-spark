@@ -28,10 +28,6 @@ export function FAQSection() {
       answer: "Yes, we offer ongoing maintenance packages to keep your website secure, updated, and performing optimally. Our maintenance services include regular updates, security monitoring, and technical support."
     },
     {
-      question: "What technologies do you use?",
-      answer: "We work with a range of modern technologies including React, Angular, Laravel, Flask for frontend development; Node.js, Python, R, Java, and PHP for backend; and various cloud platforms like AWS, Google Cloud, and Azure. We select the best technology stack based on your specific project requirements."
-    },
-    {
       question: "Can you help with SEO and digital marketing?",
       answer: "Yes, we provide SEO optimization services to improve your website's visibility in search engines. We can also assist with broader digital marketing strategies including content marketing, social media, and paid advertising campaigns."
     },
