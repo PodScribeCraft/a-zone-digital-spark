@@ -50,10 +50,16 @@ export function Navbar() {
           <Button asChild className="hidden md:flex bg-purple-700 hover:bg-purple-600">
             <HashLink to="#contact" scroll={scrollWithOffset}>Contact Us</HashLink>
           </Button>
+          {isOpen ? 
+          <Button variant="ghost" size="icon" onClick={toggleMenu}>
+                <X className="h-6 w-6" />
+                <span className="sr-only">Close menu</span>
+              </Button> :           
           <Button variant="ghost" size="icon" className="md:hidden" onClick={toggleMenu}>
             <Menu className="h-6 w-6" />
             <span className="sr-only">Toggle menu</span>
           </Button>
+          }
         </div>
       </div>
       
@@ -64,10 +70,6 @@ export function Navbar() {
               <HashLink to="#home" className="flex items-center gap-2" onClick={() => setIsOpen(false)} scroll={scrollWithOffset}>
                 <span className="font-bold text-xl bg-gradient-to-r from-white to-purple-400 bg-clip-text text-transparent">A-Zone</span>
               </HashLink>
-              <Button variant="ghost" size="icon" onClick={toggleMenu}>
-                <X className="h-6 w-6" />
-                <span className="sr-only">Close menu</span>
-              </Button>
             </div>
             <nav className="grid grid-flow-row auto-rows-max text-lg gap-6">
               <HashLink to="#home" className="flex w-full items-center py-2 text-gray-300 hover:text-purple-400" onClick={() => setIsOpen(false)} scroll={scrollWithOffset}>Home</HashLink>

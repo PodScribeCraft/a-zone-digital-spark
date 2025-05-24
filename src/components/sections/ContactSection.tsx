@@ -1,5 +1,5 @@
 
-import { useState } from "react";
+import { useState, useRef } from "react";
 import { Mail, MapPin, Phone } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/components/ui/card";
@@ -7,6 +7,8 @@ import { Input } from "@/components/ui/input";
 import { Label } from "@/components/ui/label";
 import { Textarea } from "@/components/ui/textarea";
 import { toast } from "@/hooks/use-toast";
+import sendEmail from "@/utils/sendEmail";
+
 
 interface FormData {
   name: string;
@@ -16,6 +18,8 @@ interface FormData {
 }
 
 export function ContactSection() {
+
+  const form = useRef<HTMLFormElement>(null)
   // Contact form state
   const [formData, setFormData] = useState<FormData>({
     name: "",
@@ -30,12 +34,13 @@ export function ContactSection() {
     setFormData(prev => ({ ...prev, [name]: value }));
   };
 
-  const handleSubmit = (e: React.FormEvent<HTMLFormElement>) => {
+  const handleSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault();
-    setIsSubmitting(true);
-    
-    // Simulate form submission
-    setTimeout(() => {
+    if(!form.current) return;
+
+    try{
+      setIsSubmitting(true);
+      await sendEmail(form.current);
       toast({
         title: "Message sent!",
         description: "We'll get back to you as soon as possible.",
@@ -45,9 +50,17 @@ export function ContactSection() {
         email: "",
         phone: "",
         message: ""
+      })
+    }catch (error){
+      console.error("Error sending email:", error);
+      toast({
+        title: "Error",
+        description: "There was an error sending your message. Please try again later.",
+        variant: "destructive",
       });
+    }finally{
       setIsSubmitting(false);
-    }, 1500);
+    }
   };
 
   return (
@@ -67,7 +80,7 @@ export function ContactSection() {
               <CardDescription>Fill out the form below and we'll get back to you shortly.</CardDescription>
             </CardHeader>
             <CardContent>
-              <form onSubmit={handleSubmit} className="space-y-6">
+              <form ref={form} onSubmit={handleSubmit} className="space-y-6">
                 <div className="space-y-2">
                   <Label htmlFor="name">Full Name</Label>
                   <Input 

@@ -186,7 +186,7 @@ export function ServicesSection() {
         
         <div className="grid gap-8 md:grid-cols-2 lg:grid-cols-3">
           {services.map((service, index) => (
-            <div key={index} className="opacity-0 animate-on-scroll" style={{ animationDelay: `${index * 100}ms` }}>
+            <div key={service.title} className="opacity-0 animate-on-scroll" style={{ animationDelay: `${index * 100}ms` }}>
               <ServiceCard
                 title={service.title}
                 description={service.description}

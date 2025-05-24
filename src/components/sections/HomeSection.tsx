@@ -8,7 +8,7 @@ export function HomeSection() {
       <div className="absolute inset-0 bg-grid-white/5 [mask-image:linear-gradient(to_bottom,transparent,black)]" />
       <div className="container relative">
         <div className="max-w-3xl space-y-8 opacity-0 animate-on-scroll">
-          <h1 className="text-5xl md:text-6xl lg:text-7xl font-bold tracking-tighter bg-gradient-to-r from-white to-purple-400 bg-clip-text text-transparent">
+          <h1 className="text-5xl md:text-6xl lg:text-7xl py-3 font-bold tracking-tighter bg-gradient-to-r from-white to-purple-400 bg-clip-text text-transparent">
             Digital Solutions for Growing Businesses
           </h1>
           <p className="text-xl text-muted-foreground">

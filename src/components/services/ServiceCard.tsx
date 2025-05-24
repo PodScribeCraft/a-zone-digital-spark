@@ -39,7 +39,7 @@ export function ServiceCard({
   const [isOpen, setIsOpen] = useState(false);
 
   return (
-    <Card className="bg-black hover:shadow-purple-800/20 hover:shadow-lg transition-shadow duration-300 border-purple-800/30 h-full flex flex-col">
+    <Card className="bg-black hover:shadow-purple-800/20 hover:shadow-lg transition-shadow duration-300 border-purple-800/30 flex flex-col">
       <CardHeader className="pb-2">
         <div className="flex items-center gap-2 mb-2">
           <Icon className="h-5 w-5 text-purple-400" />

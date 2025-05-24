@@ -48,7 +48,7 @@ export function FAQSection() {
         </div>
 
         <div className="max-w-3xl mx-auto opacity-0 animate-on-scroll">
-          <Accordion type="single" collapsible className="w-full">
+          <Accordion type="multiple" className="w-full">
             {faqItems.map((item, index) => (
               <AccordionItem key={index} value={`item-${index}`} className="border-purple-800/30">
                 <AccordionTrigger className="text-left text-lg font-medium hover:text-purple-400">
